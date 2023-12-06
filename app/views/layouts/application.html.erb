@@ -6,11 +6,15 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.1/dist/tailwind.min.css">
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <%= turbo_refreshes_with method: :morph, scroll: :preserve %>
   </head>
 
-  <body>
+  <body class="bg-gray-100">
     <%= yield %>
   </body>
 </html>

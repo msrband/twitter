@@ -1,0 +1,28 @@
+<%= turbo_stream_from @user %>
+
+<div class="max-w-xl mx-auto pt-8">
+  <%= form_with model: Post.new do |form| %>
+    <%= form.text_field :body, class: "w-full p-4 text-lg border rounded focus:outline-none focus:shadow-outline",
+      rows: 3, placeholder: "What's happening?", autofocus: true %>
+    <%= form.submit "Tweet", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2" %>
+  <% end %>
+</div>
+
+<div class="max-w-xl mx-auto py-4">
+    <div class="text-lg font-bold mb-4">
+        Total Tweets: <%= @posts.count %>
+    </div>
+
+  <% @posts.each do |post| %>
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <div class="flex justify-between items-start">
+        <p class="text-lg"><%= post.body %></p>
+        <%= button_to "Delete", post, class: "bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded text-sm",
+          method: :delete, data: { turbo_confirm: ("There are uncompleted tasks. Are you sure?") }%>
+      </div>
+      <div class="text-gray-600 text-sm mt-2">
+        Posted on: <%= post.created_at %>
+      </div>
+    </div>
+  <% end %>
+</div>
