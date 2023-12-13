@@ -1,8 +1,6 @@
 require_relative "boot"
 
 require "rails/all"
-# https://github.com/hotwired/turbo-rails/pull/523
-require "active_support/core_ext/module/attribute_accessors_per_thread"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
