@@ -4,11 +4,6 @@ class PostsController < ApplicationController
 
   def index
     @posts = @user.posts.order(created_at: :desc)
-
-    respond_to do |format|
-      format.html
-      format.turbo_stream
-    end
   end
 
   def create

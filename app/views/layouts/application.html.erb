@@ -12,6 +12,7 @@
     <%= javascript_importmap_tags %>
 
     <%= turbo_refreshes_with method: :morph, scroll: :preserve %>
+    <%= yield :head %>
   </head>
 
   <body class="bg-gray-100">

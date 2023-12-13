@@ -4,7 +4,4 @@ class Post < ApplicationRecord
   belongs_to :user, touch: true
 
   validates :body, presence: true, length: { maximum: 50 }
-
-  # When the model is changed, a message will sent over ActionCable.
-  broadcasts_refreshes
 end
